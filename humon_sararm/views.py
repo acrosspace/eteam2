@@ -8,3 +8,6 @@ def hello(request):
 
 def index(request):
     return render(request, "index.html", {"hello": "이수영"})
+
+def test(request):
+    return render(request, "test.html", {"result": "성공!"})

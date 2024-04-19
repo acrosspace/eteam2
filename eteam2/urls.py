@@ -25,4 +25,5 @@ urlpatterns = [
     path("kjyjy10/", include("kjyjy10.urls")),
     path("humon_sararm/", include("humon_sararm.urls")),
     path("cass/", include("cass.urls")),
+    
 ]

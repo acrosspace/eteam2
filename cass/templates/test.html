@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    Hello, {{ hello }}!
-    
+    {% for prime in primes %}
+        <li>{{ prime }}</li>
+    {% endfor %}
 </body>
 </html>

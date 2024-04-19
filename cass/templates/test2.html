@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+        }
+
+        #box1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            width: 150px;
+            height: 150px;
+            background-color: blue;
+        }
+
+        .box2 {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            width: 40px;
+            height: 150px;
+            background-color: #00ffff;
+            /* margin: 10px; */
+        }
+
+        .box3 {
+            width: 20px;
+            height: 20px;
+            background-color: #ffff00;
+            /* margin: 10px; */
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box1">
+        <div class="box2">
+            <div class="box3"></div>
+            <div class="box3"></div>
+            <div class="box3"></div>
+        </div>
+        <div class="box2">
+            <div class="box3"></div>
+            <div class="box3"></div>
+            <div class="box3"></div>
+        </div>
+        <div class="box2">
+            <div class="box3"></div>
+            <div class="box3"></div>
+            <div class="box3"></div>
+        </div>
+    </div>
+
+    {% for item in primes %}
+        <div id="box" style="width: {{ item }}px">{{item}}</div>
+    {% endfor %}
+
+</body>
+</html>
