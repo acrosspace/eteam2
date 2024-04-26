@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Div</title>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.25.1/full/pyodide.js"></script>
+    <style>
+        #movable-div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="movable-div"></div>
+
+    <button id="left">왼쪽</button>
+    <button id="right">오른쪽</button>
+    <button id="up">위쪽</button>
+    <button id="down">아래쪽</button>
+
+    <script>
+        const box = document.getElementById('movable-div');
+        let posX = 50;
+        let posY = 50;
+
+        document.addEventListener('keydown', function(event) {
+
+            console.log(event.key);
+
+            const key = event.key.toLowerCase();
+            switch (key) {
+                case 'w':
+                    posY -= 10;
+                    break;
+                case 's':
+                    posY += 10;
+                    break;
+                case 'a':
+                    posX -= 10;
+                    break;
+                case 'd':
+                    posX += 10;
+                    break;
+            }
+            box.style.left = posX + 'px';
+            box.style.top = posY + 'px';
+        });
+
+        document.getElementById("left").addEventListener("click", function() {
+            console.log(box.style.left);
+
+            posX -= 10;
+
+            box.style.left = posX + "px";
+
+            box.style.backgroundColor = "blue";
+        });
+    </script>
+
+    <script type="text/javascript">
+        async function main(){
+            let pyodide = await loadPyodide();
+            console.log(pyodide.runPython(`
+                import sys
+                sys.version
+            `));
+            pyodide.runPython("print(1 + 2)");
+        }
+        main();
+    </script>
+</body>
+</html>

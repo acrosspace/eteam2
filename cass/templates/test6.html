@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Div</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+</head>
+<body>
+    <py-input id="num1" label="Enter first number:"></py-input>
+    <py-input id="num2" label="Enter second number:"></py-input>
+    <py-button onclick="add_numbers">Add Numbers</py-button>
+    <!-- <py-repl></py-repl> -->
+
+    <py-script>
+        from js import document
+
+        def add_numbers():
+            num1 = float(document.getElementById('num1').value)
+            num2 = float(document.getElementById('num2').value)
+            result = num1 + num2
+            print("The sum is:", result)
+
+    </py-script>
+</body>
+</html>
