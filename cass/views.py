@@ -36,8 +36,18 @@ def test3(request, name=None):
 
     return render(request, "test3.html", {"name": name})
 
+
+
+
+
 def test4(request):
     return render(request, "test4.html")
+
+
+
+
+
+
 
 def test4_type(request, object_type):
     return render(request, "test4.html", {"object_type": object_type})

@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,4 +13,130 @@
         <h1>Object Type: None</h1>
     {% endif %}
 </body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Move Div</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+    <button id="left">왼쪽</button>
+    <button id="right">오른쪽</button>
+    <button id="up">위쪽</button>
+    <button id="down">아래쪽</button>
+
+    <script>
+        var box = document.getElementById('box1');
+        var box2 = document.getElementById('box2');
+        box2.style.top = "100px";
+        box2.style.left = "100px";
+
+        var posX = 50
+        var posY = 50
+        var state = "stop"
+
+        setInterval(function() {
+            if (state == "right") {
+                posX += 2
+                box.style.left = posX + 'px'
+            }
+            if (state == "left") {
+                posX -= 2
+                box.style.left = posX + 'px'
+            }
+            if (state == "up") {
+                posY -= 2
+                box.style.left = posY + 'px'
+            }
+            if (state == "down") {
+                posY += 2
+                box.style.left = posY + 'px'
+            }
+
+            //console.log("my position: ", box.style.left, box.style.top);
+
+            var box1X = parseInt(box.style.left)
+            var box1Y = parseInt(box.style.top)
+
+            console.log("my position: ", box1X, box1Y);
+
+            var box2X = parseInt(box2.style.left)
+            var box2Y = parseInt(box2.style.top)
+
+            console.log("enemy position: ", box2X, box2Y);
+
+            if (box1X < box2X) {
+                box2.style.left = box2X - 1 + 'px'
+            } else {
+                box2.style.left = box2X + 1 + 'px'
+            }
+        }, 10)
+
+        document.addEventListener('keydown', function(event) {
+
+            console.log(event.key);
+
+            var key = event.key.toLowerCase();
+
+            switch (key) {
+                case 'w':
+                    posY -= 10;
+                    break;
+                case 's':
+                    posY += 10;
+                    break;
+                case 'a':
+                    posX -= 10;
+                    break;
+                case 'd':
+                    state = "right"
+                    break
+            }
+            box.style.left = posX + 'px';
+            box.style.top = posY + 'px';
+        });
+
+        document.getElementById("left").addEventListener("click", function() {
+            console.log("box의 left값: ", box.style.left);
+
+            posX -= 10;
+
+            box.style.left = posX + "px";
+
+            box.style.backgroundColor = "blue";
+        });
+
+
+    </script>
+
+</body>
 </html>
+
+
+
