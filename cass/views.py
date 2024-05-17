@@ -49,6 +49,7 @@ def test4(request):
 
 
 
+
 def test4_type(request, object_type):
     return render(request, "test4.html", {"object_type": object_type})
 
@@ -57,3 +58,7 @@ def test5(request):
 
 def test6(request):
     return render(request, "test6.html")
+
+def test7(request):
+    return render(request, "test7.html")
+

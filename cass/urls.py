@@ -17,4 +17,6 @@ urlpatterns = [
     path("test4/<str:object_type>/", views.test4_type, name="test4_object_type"),
     path("test5/", views.test5, name="test5_base"),
     path("test6/", views.test6, name="test6_base"),
+
+    path("test7/", views.test7, name="test7_base"),
 ]
